@@ -8,6 +8,8 @@ package userInterface;
 
 import javax.swing.Timer;
 
+import main.GameController;
+
 public class CLIManager implements UserInterface
 {
     public CLIManager()
@@ -20,5 +22,12 @@ public class CLIManager implements UserInterface
     {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void initGameControllerFromInstance(GameController gc)
+    {
+        // TODO Auto-generated method stub
+
     }
 }

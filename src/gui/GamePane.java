@@ -1,24 +1,26 @@
 
 package gui;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.Timer;
-
-import java.util.*;
-
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+import main.GameController;
 
 public class GamePane extends JFrame implements KeyListener, ActionListener
 {
+    GameController gameController;
+
     Image wvlogo;
-    double angle;
     char dir;
 
     public GamePane()
@@ -37,10 +39,12 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         addKeyListener(this);
         setSize(600, 600);
         setVisible(true);
-        dir = '-';
-        angle = 0;
         this.setBackground(Color.decode("#F44336"));
-        ;
+    }
+
+    public void initGameControllerFromInstance(GameController gc)
+    {
+        gameController = gc;
     }
 
     public void paint(Graphics g)
@@ -60,6 +64,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
 
     public void paintOffScreen(Graphics g)
     {
+        double angle = gameController.getPlayerAngle();
         // g.drawImage(, x, y, width, height, observer)
         Graphics2D g2d = (Graphics2D) g; // Create a Java2D version of g.
         g2d.translate(300, 300); // Translate the center of our coordinates.
@@ -74,8 +79,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         }
         g2d.rotate(angle);
         g2d.drawImage(wvlogo, -50, -60, 100, 100, this);
-        //System.out.println(angle);
 
+        gameController.updatePlayerAngle(angle);
     }
 
     @Override

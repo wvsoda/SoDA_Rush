@@ -11,11 +11,17 @@ package userInterface;
 
 import javax.swing.Timer;
 
+import main.GameController;
+
 public interface UserInterface
 {
 
-    Timer initGameTimer();
     // Methods that interface with the user go here
     // eg: int getNumPlayers();
     // eg: void warnLoserPlayer(Player p);
+
+    // Init Methods
+    Timer initGameTimer();
+
+    void initGameControllerFromInstance(GameController gc);
 }
