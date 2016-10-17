@@ -9,8 +9,12 @@
 
 package userInterface;
 
+import javax.swing.Timer;
+
 public interface UserInterface
 {
+
+    Timer initGameTimer();
     // Methods that interface with the user go here
     // eg: int getNumPlayers();
     // eg: void warnLoserPlayer(Player p);

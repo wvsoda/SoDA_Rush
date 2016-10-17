@@ -38,8 +38,6 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         setSize(600, 600);
         setVisible(true);
         dir = '-';
-        Timer timer = new javax.swing.Timer(50, this);
-        timer.start();
         angle = 0;
         this.setBackground(Color.decode("#F44336"));
         ;
@@ -107,6 +105,5 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     public void actionPerformed(ActionEvent e)
     {
         this.repaint();
-
     }
 }

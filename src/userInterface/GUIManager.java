@@ -6,6 +6,8 @@
 
 package userInterface;
 
+import javax.swing.Timer;
+
 import gui.*;
 
 public class GUIManager implements UserInterface
@@ -15,5 +17,11 @@ public class GUIManager implements UserInterface
     public GUIManager()
     {
         gamePane = new GamePane();
+    }
+
+    @Override
+    public Timer initGameTimer()
+    {
+        return new Timer(50, gamePane);
     }
 }
