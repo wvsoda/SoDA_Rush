@@ -14,7 +14,7 @@ public class GameController
 
     public void play()
     {
-        userInterface = new CLIManager();
+        userInterface = new GUIManager();
     }
 
     // TODO: Add game turn methods
