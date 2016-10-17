@@ -18,6 +18,7 @@ public class GameController
     {
         userInterface = new GUIManager();
         Timer gameTimer = userInterface.initGameTimer();
+        gameTimer.start();
     }
 
     // TODO: Add game turn methods
