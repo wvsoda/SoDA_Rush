@@ -70,10 +70,10 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         g2d.translate(300, 300); // Translate the center of our coordinates.
         switch (dir)
         {
-            case 'a':
+            case 'd':
                 angle += 0.2;
                 break;
-            case 'd':
+            case 'a':
                 angle -= 0.2;
                 break;
         }
@@ -92,9 +92,9 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     @Override
     public void keyPressed(KeyEvent event)
     {
-        if (event.getKeyCode() == KeyEvent.VK_A)
+        if (event.getKeyCode() == KeyEvent.VK_D)
             dir = 'a';
-        else if (event.getKeyCode() == KeyEvent.VK_D)
+        else if (event.getKeyCode() == KeyEvent.VK_A)
             dir = 'd';
 
     }
