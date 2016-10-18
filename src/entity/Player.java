@@ -4,28 +4,29 @@ package entity;
 public class Player extends Entity
 {
     char rotationDirection;
-    
-    public Player(int x, int y)
+
+    public Player(int x, int y, String img)
     {
-        super(300, 300);
+        super(300, 300, img);
     }
-    
-    public void sendRotationDirection(char d)
+
+    public void setRotationDirection(char d) // import rotation direction
+                                             // variable from GameController
     {
         rotationDirection = d;
     }
-    
+
     public void move()
     {
-        switch(rotationDirection)
+        switch (rotationDirection)
         {
             case 'a':
-                this.angle += 2.0;
+                this.angle += 0.2;
                 break;
             case 'd':
-                this.angle -= 2.0;
-                break;          
-                
+                this.angle -= 0.2;
+                break;
+
         }
     }
 }

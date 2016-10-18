@@ -20,6 +20,11 @@ public abstract class Entity
         image = (new ImageIcon(img)).getImage();
     }
 
+    public double getAngle()
+    {
+        return angle;
+    }
+
     abstract public void move();
 
 }
