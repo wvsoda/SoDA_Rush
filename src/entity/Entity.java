@@ -1,13 +1,9 @@
 
 package entity;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-
 public abstract class Entity
 {
-    protected Image image;
+    protected String image;
     protected int xCoord;
     protected int yCoord;
     protected double angle;
@@ -17,7 +13,7 @@ public abstract class Entity
         xCoord = x;
         yCoord = y;
         angle = 0.0;
-        image = (new ImageIcon(img)).getImage();
+        image = img;
     }
 
     public double getAngle()
