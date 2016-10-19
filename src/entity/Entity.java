@@ -3,6 +3,7 @@ package entity;
 
 public abstract class Entity
 {
+    protected double slope;
     protected String image;
     protected int xCoord;
     protected int yCoord;
