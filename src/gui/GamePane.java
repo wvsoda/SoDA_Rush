@@ -93,9 +93,10 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     public void keyPressed(KeyEvent event)
     {
         if (event.getKeyCode() == KeyEvent.VK_D)
-            dir = 'a';
-        else if (event.getKeyCode() == KeyEvent.VK_A)
             dir = 'd';
+        else if (event.getKeyCode() == KeyEvent.VK_A)
+            dir = 'a';
+
 
     }
 
