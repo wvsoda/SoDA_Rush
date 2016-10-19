@@ -8,13 +8,14 @@ public abstract class Entity
     protected int xCoord;
     protected int yCoord;
     protected double angle;
-
-    public Entity(int x, int y, String img)
+    
+    
+    public Entity(int x, int y)
     {
         xCoord = x;
         yCoord = y;
         angle = 0.0;
-        image = img;
+        image = "";
     }
 
     public double getAngle()

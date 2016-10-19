@@ -6,9 +6,10 @@ import java.util.Random;
 public abstract class Enemy extends Entity
 {
 
-    public Enemy(int xCoord, int yCoord, String image)
+    public Enemy(int xCoord, int yCoord)
     {
-        super(xCoord, yCoord, image);
+        super(xCoord, yCoord);
+        image = "mclogo";
         Random barrier = new Random(3);
         Random r = new Random(600);
         
@@ -44,4 +45,6 @@ public abstract class Enemy extends Entity
         xCoord += Math.cos(angle) * 10;
         
     }
+    
+    
 }

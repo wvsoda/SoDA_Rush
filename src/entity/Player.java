@@ -5,9 +5,9 @@ public class Player extends Entity
 {
     char rotationDirection;
 
-    public Player(int x, int y, String img)
+    public Player(int x, int y)
     {
-        super(300, 300, img);
+        super(300, 300);
     }
 
     public void setRotationDirection(char d) // import rotation direction
