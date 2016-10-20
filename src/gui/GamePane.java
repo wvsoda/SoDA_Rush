@@ -51,7 +51,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         this.setBackground(Color.decode("#F44336"));
     }
 
-    public void initGameControllerFromInstance(GameController gc, Set<Enemy> enems)
+    // Receives important references from GameController and keeps track of them
+    public void initReferencesToGameController(GameController gc, Set<Enemy> enems)
     {
         gameController = gc;
         enemies = enems;
@@ -144,11 +145,5 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         wvlogo = (new ImageIcon("wvlogo.png")).getImage();
         mclogo = (new ImageIcon("mclogo.png")).getImage();
 
-    }
-
-    // Update the set of enemies so we can draw them
-    public void updateEnemyGraphics(Set<Enemy> newEnemies)
-    {
-        enemies = newEnemies;
     }
 }

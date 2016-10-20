@@ -22,10 +22,10 @@ public class Player extends Entity
         switch (rotationDirection)
         {
             case 'a':
-                this.angle += 0.2;
+                this.angle -= 0.2;
                 break;
             case 'd':
-                this.angle -= 0.2;
+                this.angle += 0.2;
                 break;
 
         }

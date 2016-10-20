@@ -18,15 +18,8 @@ import main.GameController;
 
 public interface UserInterface
 {
-
-    // Methods that interface with the user go here
-    // eg: int getNumPlayers();
-    // eg: void warnLoserPlayer(Player p);
-
-    // Init Methods
     Timer initGameTimer();
 
-    void initGameControllerFromInstance(GameController gc, Set<Enemy> enems);
-
-    void updateEnemyGraphics(Set<Enemy> enemies);
+    // Passes significant references of GameController to UserInterface
+    void initReferencesToGameController(GameController gc, Set<Enemy> enems);
 }

@@ -29,7 +29,7 @@ public class GameController
         userInterface = new GUIManager();
         enemies = new HashSet<Enemy>();
 
-        userInterface.initGameControllerFromInstance(this, enemies);
+        userInterface.initReferencesToGameController(this, enemies);
 
         player = new Player(300, 300);
 
@@ -40,17 +40,13 @@ public class GameController
         enemies.add(new MCEnemy());
         enemies.add(new MCEnemy());
         enemies.add(new MCEnemy());
-
     }
 
     // Called continuously by the GamePane (keeps track of timing)
     public void play()
     {
-        //for (Enemy enemy : enemies)
-        //    enemy.move();
-        // userInterface.updateEnemyGraphics(enemies);
-            for (Enemy enemy : enemies)
-                enemy.move();
+        for (Enemy enemy : enemies)
+            enemy.move();
     }
 
     public double getPlayerAngle()

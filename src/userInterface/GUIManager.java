@@ -34,14 +34,8 @@ public class GUIManager implements UserInterface
     }
 
     @Override
-    public void initGameControllerFromInstance(GameController gc, Set<Enemy> enems)
+    public void initReferencesToGameController(GameController gc, Set<Enemy> enems)
     {
-        gamePane.initGameControllerFromInstance(gc, enems);
-    }
-
-    @Override
-    public void updateEnemyGraphics(Set<Enemy> enemies)
-    {
-        gamePane.updateEnemyGraphics(enemies);
+        gamePane.initReferencesToGameController(gc, enems);
     }
 }
