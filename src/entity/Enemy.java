@@ -1,19 +1,16 @@
 
 package entity;
 
-import java.util.Random;
-
 public abstract class Enemy extends Entity
 {
 
     public Enemy(int x, int y)
     {
         super(x, y);
-        image = "mclogo";
         int barrier = (int) (Math.random() * 4);
         int r = (int) (Math.random() * 600);
-        
-        switch(barrier)
+
+        switch (barrier)
         {
             case 0:
                 xCoord = r;
@@ -34,13 +31,11 @@ public abstract class Enemy extends Entity
         }
         angle = Math.atan2((300 - yCoord), (300 - xCoord));
     }
-    
+
     public void move()
     {
         yCoord += Math.sin(angle) * 10;
         xCoord += Math.cos(angle) * 10;
-        
     }
-    
-    
+
 }
