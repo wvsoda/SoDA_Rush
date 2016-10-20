@@ -4,14 +4,14 @@ package entity;
 public abstract class Entity
 {
     protected String image;
-    protected int xCoord;
-    protected int yCoord;
+    protected double xCoord;
+    protected double yCoord;
     protected double angle;
 
-    public Entity(int x, int y)
+    public Entity()
     {
-        xCoord = x;
-        yCoord = y;
+        xCoord = 0;
+        yCoord = 0;
         angle = 0.0;
         image = "";
     }

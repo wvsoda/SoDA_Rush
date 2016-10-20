@@ -3,9 +3,8 @@ package entity;
 
 public class MCEnemy extends Enemy
 {
-    public MCEnemy(int x, int y)
+    public MCEnemy()
     {
-        super(x, y);
         image = "mclogo";
     }
 }

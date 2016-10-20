@@ -3,10 +3,8 @@ package entity;
 
 public abstract class Enemy extends Entity
 {
-
-    public Enemy(int x, int y)
+    public Enemy()
     {
-        super(x, y);
         int barrier = (int) (Math.random() * 4);
         int r = (int) (Math.random() * 600);
 
@@ -34,8 +32,8 @@ public abstract class Enemy extends Entity
 
     public void move()
     {
-        yCoord += Math.sin(angle) * 10;
-        xCoord += Math.cos(angle) * 10;
+        yCoord += Math.sin(angle) * 5;
+        xCoord += Math.cos(angle) * 5;
     }
 
 }

@@ -6,8 +6,11 @@
 
 package userInterface;
 
+import java.util.Set;
+
 import javax.swing.Timer;
 
+import entity.Enemy;
 import gui.GamePane;
 import main.GameController;
 
@@ -31,8 +34,14 @@ public class GUIManager implements UserInterface
     }
 
     @Override
-    public void initGameControllerFromInstance(GameController gc)
+    public void initGameControllerFromInstance(GameController gc, Set<Enemy> enems)
     {
-        gamePane.initGameControllerFromInstance(gc);
+        gamePane.initGameControllerFromInstance(gc, enems);
+    }
+
+    @Override
+    public void updateEnemyGraphics(Set<Enemy> enemies)
+    {
+        gamePane.updateEnemyGraphics(enemies);
     }
 }

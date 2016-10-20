@@ -9,8 +9,11 @@
 
 package userInterface;
 
+import java.util.Set;
+
 import javax.swing.Timer;
 
+import entity.Enemy;
 import main.GameController;
 
 public interface UserInterface
@@ -23,5 +26,7 @@ public interface UserInterface
     // Init Methods
     Timer initGameTimer();
 
-    void initGameControllerFromInstance(GameController gc);
+    void initGameControllerFromInstance(GameController gc, Set<Enemy> enems);
+
+    void updateEnemyGraphics(Set<Enemy> enemies);
 }

@@ -7,7 +7,8 @@ public class Player extends Entity
 
     public Player(int x, int y)
     {
-        super(300, 300);
+        xCoord = 300;
+        yCoord = 300;
     }
 
     public void setRotationDirection(char d) // import rotation direction

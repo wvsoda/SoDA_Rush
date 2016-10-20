@@ -10,19 +10,25 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import entity.Player;
+import entity.Enemy;
 import main.GameController;
 
 public class GamePane extends JFrame implements KeyListener, ActionListener
 {
-    GameController gameController;
+    private GameController gameController;
 
-    Image wvlogo;
-    char dir;
+    private Set<Enemy> enemies;
+
+    private Image wvlogo;
+    private Image mclogo;
+
+    private char dir;
 
     public GamePane()
     {
@@ -35,17 +41,20 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
             }
         });
 
-        // TODO: Turn into resource
-        wvlogo = (new ImageIcon("newwvlogo.png")).getImage();
+        enemies = new HashSet<Enemy>();
+
+        initImageIcons();
+
         addKeyListener(this);
         setSize(600, 600);
         setVisible(true);
         this.setBackground(Color.decode("#F44336"));
     }
 
-    public void initGameControllerFromInstance(GameController gc)
+    public void initGameControllerFromInstance(GameController gc, Set<Enemy> enems)
     {
         gameController = gc;
+        enemies = enems;
     }
 
     // This function is in charge of timing, as it calls GameController's play()
@@ -71,10 +80,19 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
 
     public void paintOffScreen(Graphics g)
     {
+        for (Enemy enemy : enemies)
+        {
+            g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+        }
+
+        Graphics2D g2d = (Graphics2D) g; // Create a Java2D version of g.
+
         double angle = gameController.getPlayerAngle();
         // g.drawImage(, x, y, width, height, observer)
-        Graphics2D g2d = (Graphics2D) g; // Create a Java2D version of g.
-        g2d.translate(300, 300); // Translate the center of our coordinates.
+        
+        int widthAdjust = 50;
+        int heightAdjust = 58;
+        g2d.translate(300 + widthAdjust, 300 + heightAdjust); // Translate the center of our coordinates.
         switch (dir)
         {
             case 'd':
@@ -85,7 +103,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
                 break;
         }
         g2d.rotate(angle);
-        g2d.drawImage(wvlogo, -50, -60, 100, 100, this);
+        g2d.drawImage(wvlogo, -widthAdjust, -heightAdjust, 100, 100, this);
 
         gameController.updatePlayerDirection(dir);
     }
@@ -117,5 +135,20 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     public void actionPerformed(ActionEvent e)
     {
         this.repaint();
+    }
+
+    // Initializes the image icons
+    // TODO: Use resources instead of file paths
+    private void initImageIcons()
+    {
+        wvlogo = (new ImageIcon("wvlogo.png")).getImage();
+        mclogo = (new ImageIcon("mclogo.png")).getImage();
+
+    }
+
+    // Update the set of enemies so we can draw them
+    public void updateEnemyGraphics(Set<Enemy> newEnemies)
+    {
+        enemies = newEnemies;
     }
 }
