@@ -3,13 +3,11 @@ package entity;
 
 public abstract class Entity
 {
-    protected double slope;
     protected String image;
     protected int xCoord;
     protected int yCoord;
     protected double angle;
-    
-    
+
     public Entity(int x, int y)
     {
         xCoord = x;
@@ -21,6 +19,16 @@ public abstract class Entity
     public double getAngle()
     {
         return angle;
+    }
+
+    public double getX()
+    {
+        return xCoord;
+    }
+
+    public double getY()
+    {
+        return yCoord;
     }
 
     abstract public void move();

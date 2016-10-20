@@ -6,37 +6,33 @@ import java.util.Random;
 public abstract class Enemy extends Entity
 {
 
-    public Enemy(int xCoord, int yCoord)
+    public Enemy(int x, int y)
     {
-        super(xCoord, yCoord);
+        super(x, y);
         image = "mclogo";
-        Random barrier = new Random(3);
-        Random r = new Random(600);
+        int barrier = (int) (Math.random() * 4);
+        int r = (int) (Math.random() * 600);
         
-        
-        if(barrier.nextInt() == 0)
+        switch(barrier)
         {
-            xCoord = r.nextInt();
-            yCoord = 0;
-            
+            case 0:
+                xCoord = r;
+                yCoord = 0;
+                break;
+            case 1:
+                xCoord = 600;
+                yCoord = r;
+                break;
+            case 2:
+                xCoord = r;
+                yCoord = 600;
+                break;
+            case 3:
+                xCoord = 0;
+                yCoord = r;
+                break;
         }
-        if(barrier.nextInt() == 1)
-        {
-            xCoord = 600;
-            yCoord = r.nextInt();
-        }
-        if(barrier.nextInt() == 2)
-        {
-            xCoord = r.nextInt();
-            yCoord = 600;
-        }
-        if(barrier.nextInt() == 3)
-        {
-            xCoord = 0;
-            yCoord = r.nextInt();
-        }
-        slope = (yCoord - 300) / (xCoord - 300);
-        angle = Math.atan(slope);
+        angle = Math.atan2((300 - yCoord), (300 - xCoord));
     }
     
     public void move()
