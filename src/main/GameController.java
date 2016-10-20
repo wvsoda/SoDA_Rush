@@ -8,31 +8,41 @@ package main;
 
 import javax.swing.Timer;
 
-import userInterface.*;
+import entity.Player;
+import userInterface.GUIManager;
+import userInterface.UserInterface;
 
 public class GameController
 {
     private UserInterface userInterface;
 
-    private double playerAngle;
+    private Player player;
 
-    public void play()
+    public GameController()
     {
-        playerAngle = 0;
-
         userInterface = new GUIManager();
         userInterface.initGameControllerFromInstance(this);
+
+        player = new Player(300, 300);
+
         Timer gameTimer = userInterface.initGameTimer();
         gameTimer.start();
     }
 
-    public double getPlayerAngle()
+    // Called continuously by the GamePane (keeps track of timing)
+    public void play()
     {
-        return playerAngle;
+
     }
 
-    public void updatePlayerAngle(double newAngle)
+    public double getPlayerAngle()
     {
-        playerAngle = newAngle;
+        return player.getAngle();
+    }
+
+    public void updatePlayerDirection(char direction)
+    {
+        player.setRotationDirection(direction);
+        player.move();
     }
 }

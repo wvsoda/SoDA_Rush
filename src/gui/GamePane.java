@@ -14,6 +14,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import entity.Player;
 import main.GameController;
 
 public class GamePane extends JFrame implements KeyListener, ActionListener
@@ -47,6 +48,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         gameController = gc;
     }
 
+    // This function is in charge of timing, as it calls GameController's play()
+    // method
     public void paint(Graphics g)
     {
         // gra = g;
@@ -59,7 +62,11 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         // off-screen image
         paintOffScreen(buffer); // your own method
         g.drawImage(offImage, 0, 0, null);
+
         // draws the image with upper left corner at 0,0
+
+        // Calls GameController's play() method
+        gameController.play();
     }
 
     public void paintOffScreen(Graphics g)
@@ -80,7 +87,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         g2d.rotate(angle);
         g2d.drawImage(wvlogo, -50, -60, 100, 100, this);
 
-        gameController.updatePlayerAngle(angle);
+        gameController.updatePlayerDirection(dir);
     }
 
     @Override
@@ -96,7 +103,6 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
             dir = 'd';
         else if (event.getKeyCode() == KeyEvent.VK_A)
             dir = 'a';
-
 
     }
 
