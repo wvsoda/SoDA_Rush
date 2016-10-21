@@ -26,4 +26,5 @@ public interface UserInterface
     void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> bullets);
     
     JFrame getThis();
+    void endGame(int s);//ends the game and displays score
 }

@@ -28,9 +28,11 @@ public class GameController
     private Set<Bullet> bullets;
     private int timer;
     private int diff;
+    private int score;
     
     public GameController()
     {
+        score = 0;
         userInterface = new GUIManager();
         enemies = new HashSet<Enemy>();
         bullets = new HashSet<Bullet>();
@@ -62,8 +64,11 @@ public class GameController
             {
                 // TODO end game
                 //System.out.println("end game");
+                
                 userInterface.getThis().setVisible(false);
                 userInterface.getThis().dispose();
+                userInterface.endGame(score);
+                System.exit(1);
                 
             }
         }
@@ -77,6 +82,7 @@ public class GameController
                     enemy.kill();
                     bullet.kill();
                     //System.out.println("kill enemy");
+                    score++;
                 }
             }
             bulletsOffScreen(bullet);
@@ -143,4 +149,5 @@ public class GameController
     public void shootBullet(){
         bullets.add(new Bullet(player.getAngle()));
     }
+    
 }

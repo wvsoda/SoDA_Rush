@@ -9,6 +9,7 @@ package userInterface;
 import java.util.Set;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import entity.Enemy;
@@ -47,4 +48,12 @@ public class GUIManager implements UserInterface
         // TODO Auto-generated method stub
         return gamePane;
     }
+    
+    public void endGame(int s)
+    {
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "You killed " + s + " enemies! \n " + "You receive " + s%15 + " piece(s) of candy!");
+    }
+    
+    
 }

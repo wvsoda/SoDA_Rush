@@ -113,7 +113,6 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
                     gameController.shootBullet();
                     bulletShot = true;
                 }
-                System.out.println("W pressed");
                 break;
             case 'd':
                 angle += 0.2;
