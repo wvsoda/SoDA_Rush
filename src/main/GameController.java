@@ -14,6 +14,7 @@ import javax.swing.Timer;
 import entity.Enemy;
 import entity.MCEnemy;
 import entity.Player;
+import entity.CollisionDetection;
 import userInterface.GUIManager;
 import userInterface.UserInterface;
 
@@ -68,7 +69,6 @@ public class GameController
 
     private boolean enemyCollisionWithPlayer(Enemy enemy)
     {
-        // TODO make collision detection
-        return false;
+        return CollisionDetection.entitiesAreColliding(player, enemy);
     }
 }
