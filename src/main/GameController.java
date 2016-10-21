@@ -29,6 +29,7 @@ public class GameController
     private int timer;
     private int diff;
     private int score;
+
     
     public GameController()
     {
@@ -91,12 +92,14 @@ public class GameController
         
         removeKilled();
         if(timer!=0 && timer%diff==0)
+        {
             enemies.add(new MCEnemy());
+        }
         timer++;
-        if(timer!=0 && timer%200==0 && diff>10)
+        if(timer!=0 && timer%200==0 && diff>10){
             diff -= 10;
-        System.out.println(enemies.size());
-        
+        }
+        System.out.println("Score: " +score);
     }
     
     public void removeKilled()
@@ -104,7 +107,10 @@ public class GameController
         for(Enemy e : enemies)
         {
             if(e.isKilled())
+            {
                 enemies.remove(e);
+                score++;
+            }
         }
         for(Bullet b : bullets)
         {

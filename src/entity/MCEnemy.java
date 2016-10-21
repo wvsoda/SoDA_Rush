@@ -6,6 +6,6 @@ public class MCEnemy extends Enemy
     public MCEnemy()
     {
         image = "mclogo";
-        hitBoxRadius = 50;
+        hitBoxRadius = 100;
     }
 }
