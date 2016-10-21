@@ -52,7 +52,7 @@ public class GUIManager implements UserInterface
     public void endGame(int s)
     {
         JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame, "You killed " + s + " enemies! \n " + "You receive " + s%15 + " piece(s) of candy!");
+        JOptionPane.showMessageDialog(frame, "Your score is " + s + " ! \n " + "You receive " + s/15 + " piece(s) of candy!");
     }
     
     
