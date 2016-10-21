@@ -8,7 +8,7 @@ public abstract class Entity
     protected double yCoord;
     protected double angle;
 
-    protected int hitBoxRadius;
+    public int hitBoxRadius;
     protected boolean killed;
     public Entity()
     {

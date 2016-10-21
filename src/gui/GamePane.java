@@ -30,6 +30,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     private Image wvlogo;
     private Image mclogo;
     private Image pencil;
+    private Image collegeboard;
+    private Image sundevil;
 
     private char dir;
     boolean bulletShot;
@@ -90,7 +92,21 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     {
         for (Enemy enemy : enemies)
         {
-            g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+            switch (enemy.getImage()){
+                case 0:
+                    g.drawImage(collegeboard, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                    enemy.hitBoxRadius = 30;
+                    break;
+                case 1:
+                    g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                    enemy.hitBoxRadius = 50;
+                    break;
+                case 2:
+                    g.drawImage(sundevil, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                    enemy.hitBoxRadius = 50;
+                    break;
+                    
+            }
         }
         
         for (Bullet bullet : Bullets){
@@ -166,6 +182,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         wvlogo = (new ImageIcon("wvlogo.png")).getImage();
         mclogo = (new ImageIcon("mclogo.png")).getImage();
         pencil = (new ImageIcon("cannonball.png")).getImage();
+        collegeboard = (new ImageIcon ("collegebaord.png")).getImage();
+        sundevil = (new ImageIcon ("sundevil.png")).getImage();
 
     }
 }

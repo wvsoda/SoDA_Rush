@@ -83,7 +83,6 @@ public class GameController
                     enemy.kill();
                     bullet.kill();
                     //System.out.println("kill enemy");
-                    score++;
                 }
             }
             bulletsOffScreen(bullet);
@@ -149,7 +148,7 @@ public class GameController
 
     private boolean bulletCollisionWithEnemy(Enemy enemy, Bullet bullet)
     {
-        return CollisionDetection.entitiesAreColliding(enemy, bullet);
+        return CollisionDetection.entitiesAreColliding(bullet, enemy);
     }
     
     public void shootBullet(){

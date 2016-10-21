@@ -1,10 +1,12 @@
 
 package entity;
 
-public abstract class Enemy extends Entity
+public class Enemy extends Entity
 {
+    int type;
     public Enemy()
     {
+        type = (int)(Math.random()*3);
         int barrier = (int) (Math.random() * 4);
         int r = (int) (Math.random() * 600);
 
@@ -27,6 +29,8 @@ public abstract class Enemy extends Entity
                 yCoord = r;
                 break;
         }
+        
+        
         angle = Math.atan2((250 - yCoord), (250 - xCoord));
     }
 
@@ -34,6 +38,10 @@ public abstract class Enemy extends Entity
     {
         yCoord += Math.sin(angle) * 1;
         xCoord += Math.cos(angle) * 1;
+    }
+    
+    public int getImage(){
+       return type;
     }
 
 }
