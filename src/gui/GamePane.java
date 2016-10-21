@@ -96,6 +96,9 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         g2d.translate(300 + widthAdjust, 300 + heightAdjust); // Translate the center of our coordinates.
         switch (dir)
         {
+            case 'w':
+                gameController.shootBullet();
+                System.out.println("W pressed");
             case 'd':
                 angle += 0.2;
                 break;
@@ -122,6 +125,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
             dir = 'd';
         else if (event.getKeyCode() == KeyEvent.VK_A)
             dir = 'a';
+        else if (event.getKeyCode() == KeyEvent.VK_W)
+            dir = 'w';
 
     }
 
