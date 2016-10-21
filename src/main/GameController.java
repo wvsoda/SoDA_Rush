@@ -33,7 +33,7 @@ public class GameController
         enemies = new HashSet<Enemy>();
         bullets = new HashSet<Bullet>();
 
-        userInterface.initReferencesToGameController(this, enemies);
+        userInterface.initReferencesToGameController(this, enemies, bullets);
 
         player = new Player(300, 300);
 

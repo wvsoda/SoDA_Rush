@@ -7,8 +7,8 @@ public class Player extends Entity
 
     public Player(int x, int y)
     {
-        xCoord = 300;
-        yCoord = 300;
+        xCoord = 250;
+        yCoord = 250;
         hitBoxRadius = 50;
     }
 

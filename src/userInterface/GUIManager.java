@@ -11,6 +11,7 @@ import java.util.Set;
 import javax.swing.Timer;
 
 import entity.Enemy;
+import entity.Bullet;
 import gui.GamePane;
 import main.GameController;
 
@@ -34,8 +35,8 @@ public class GUIManager implements UserInterface
     }
 
     @Override
-    public void initReferencesToGameController(GameController gc, Set<Enemy> enems)
+    public void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> bullets)
     {
-        gamePane.initReferencesToGameController(gc, enems);
+        gamePane.initReferencesToGameController(gc, enems, bullets);
     }
 }

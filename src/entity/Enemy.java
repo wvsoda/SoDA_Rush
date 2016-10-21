@@ -27,13 +27,13 @@ public abstract class Enemy extends Entity
                 yCoord = r;
                 break;
         }
-        angle = Math.atan2((300 - yCoord), (300 - xCoord));
+        angle = Math.atan2((250 - yCoord), (250 - xCoord));
     }
 
     public void move()
     {
-        yCoord += Math.sin(angle) * 5;
-        xCoord += Math.cos(angle) * 5;
+        yCoord += Math.sin(angle) * 3;
+        xCoord += Math.cos(angle) * 3;
     }
 
 }

@@ -14,6 +14,7 @@ import java.util.Set;
 import javax.swing.Timer;
 
 import entity.Enemy;
+import entity.Bullet;
 import main.GameController;
 
 public interface UserInterface
@@ -21,5 +22,5 @@ public interface UserInterface
     Timer initGameTimer();
 
     // Passes significant references of GameController to UserInterface
-    void initReferencesToGameController(GameController gc, Set<Enemy> enems);
+    void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> bullets);
 }

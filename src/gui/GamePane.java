@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import entity.Enemy;
+import entity.Bullet;
 import main.GameController;
 
 public class GamePane extends JFrame implements KeyListener, ActionListener
@@ -24,9 +25,11 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     private GameController gameController;
 
     private Set<Enemy> enemies;
+    private Set<Bullet> Bullets;
 
     private Image wvlogo;
     private Image mclogo;
+    private Image pencil;
 
     private char dir;
 
@@ -52,10 +55,11 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     }
 
     // Receives important references from GameController and keeps track of them
-    public void initReferencesToGameController(GameController gc, Set<Enemy> enems)
+    public void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> projectile)
     {
         gameController = gc;
         enemies = enems;
+        Bullets = projectile;
     }
 
     // This function is in charge of timing, as it calls GameController's play()
@@ -85,20 +89,25 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         {
             g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
         }
+        
+        for (Bullet bullet : Bullets){
+            g.drawImage(pencil, (int) bullet.getX(), (int) bullet.getY(),76,38,this);
+        }
 
         Graphics2D g2d = (Graphics2D) g; // Create a Java2D version of g.
 
         double angle = gameController.getPlayerAngle();
         // g.drawImage(, x, y, width, height, observer)
         
-        int widthAdjust = 50;
-        int heightAdjust = 58;
+        int widthAdjust = 0;
+        int heightAdjust = 0;
         g2d.translate(300 + widthAdjust, 300 + heightAdjust); // Translate the center of our coordinates.
         switch (dir)
         {
             case 'w':
                 gameController.shootBullet();
                 System.out.println("W pressed");
+                break;
             case 'd':
                 angle += 0.2;
                 break;
@@ -107,7 +116,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
                 break;
         }
         g2d.rotate(angle);
-        g2d.drawImage(wvlogo, -widthAdjust, -heightAdjust, 100, 100, this);
+        g2d.drawImage(wvlogo, -50, -58, 100, 100, this);
 
         gameController.updatePlayerDirection(dir);
     }
@@ -149,6 +158,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     {
         wvlogo = (new ImageIcon("wvlogo.png")).getImage();
         mclogo = (new ImageIcon("mclogo.png")).getImage();
+        pencil = (new ImageIcon("pencil.png")).getImage();
 
     }
 }
