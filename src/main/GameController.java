@@ -46,7 +46,13 @@ public class GameController
     public void play()
     {
         for (Enemy enemy : enemies)
+        {
             enemy.move();
+            if(enemyCollisionWithPlayer(enemy))
+            {
+                // TODO end game
+            }
+        }
     }
 
     public double getPlayerAngle()
@@ -58,5 +64,11 @@ public class GameController
     {
         player.setRotationDirection(direction);
         player.move();
+    }
+
+    private boolean enemyCollisionWithPlayer(Enemy enemy)
+    {
+        // TODO make collision detection
+        return false;
     }
 }
