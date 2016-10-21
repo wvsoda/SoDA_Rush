@@ -40,7 +40,8 @@ public class Enemy extends Entity
         xCoord += Math.cos(angle) * 1;
     }
     
-    public int getImage(){
+    public int getImage()
+    {
        return type;
     }
 

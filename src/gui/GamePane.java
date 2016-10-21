@@ -36,6 +36,8 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     private char dir;
     boolean bulletShot;
     
+    boolean variety = true;     //////////////////////If you want some variety in your enemies, set this to true. /////////////////
+    
     
     public GamePane()
     {
@@ -92,24 +94,33 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     {
         for (Enemy enemy : enemies)
         {
-            switch (enemy.getImage()){
-                case 0:
-                    g.drawImage(collegeboard, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
-                    enemy.hitBoxRadius = 30;
-                    break;
-                case 1:
-                    g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
-                    enemy.hitBoxRadius = 50;
-                    break;
-                case 2:
-                    g.drawImage(sundevil, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
-                    enemy.hitBoxRadius = 50;
-                    break;
-                    
+            if (variety == true)
+            {
+                switch (enemy.getImage())
+                {
+                    case 0:
+                        g.drawImage(collegeboard, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                        enemy.hitBoxRadius = 30;
+                        break;
+                    case 1:
+                        g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                        enemy.hitBoxRadius = 50;
+                        break;
+                    case 2:
+                        g.drawImage(sundevil, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                        enemy.hitBoxRadius = 50;
+                        break;
+                }
+            }
+            else
+            {
+                g.drawImage(mclogo, (int) enemy.getX(), (int) enemy.getY(),100,100, this);
+                enemy.hitBoxRadius = 50;
             }
         }
         
-        for (Bullet bullet : Bullets){
+        for (Bullet bullet : Bullets)
+        {
             g.drawImage(pencil, (int) bullet.getX(), (int) bullet.getY(),20,20,this);
         }
 
