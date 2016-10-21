@@ -26,7 +26,9 @@ public class GameController
     private Player player;
     private Set<Enemy> enemies;
     private Set<Bullet> bullets;
-
+    private int timer;
+    private int diff;
+    
     public GameController()
     {
         userInterface = new GUIManager();
@@ -44,19 +46,25 @@ public class GameController
         enemies.add(new MCEnemy());
         enemies.add(new MCEnemy());
         enemies.add(new MCEnemy());
-        bullets.add(new Bullet(player.getAngle()));
+        timer = 0;
+        diff = 100;
+        //bullets.add(new Bullet(player.getAngle()));
     }
 
     // Called continuously by the GamePane (keeps track of timing)
     public void play()
     {
+        
         for (Enemy enemy : enemies)
         {
             enemy.move();
             if(enemyCollisionWithPlayer(enemy))
             {
                 // TODO end game
-                System.out.println("end game");
+                //System.out.println("end game");
+                userInterface.getThis().setVisible(false);
+                userInterface.getThis().dispose();
+                
             }
         }
         for (Bullet bullet : bullets)
@@ -66,13 +74,51 @@ public class GameController
             {
                 if(bulletCollisionWithEnemy(enemy, bullet))
                 {
-                    //TODO kill the enemy and the bullet
-                    System.out.println("kill enemy");
+                    enemy.kill();
+                    bullet.kill();
+                    //System.out.println("kill enemy");
                 }
             }
+            bulletsOffScreen(bullet);
+            
+        }
+        
+        removeKilled();
+        if(timer!=0 && timer%diff==0)
+            enemies.add(new MCEnemy());
+        timer++;
+        if(timer!=0 && timer%200==0 && diff>10)
+            diff -= 10;
+        System.out.println(enemies.size());
+        
+    }
+    
+    public void removeKilled()
+    {
+        for(Enemy e : enemies)
+        {
+            if(e.isKilled())
+                enemies.remove(e);
+        }
+        for(Bullet b : bullets)
+        {
+            if(b.isKilled())
+                bullets.remove(b);
         }
     }
-
+    
+    public void bulletsOffScreen(Bullet b)
+    {
+        if (
+                b.getX()<0 || 
+                b.getX()>600 ||
+                b.getY()<0 ||
+                b.getY()>600
+                
+                )
+            b.kill();
+    }
+    
     public double getPlayerAngle()
     {
         return player.getAngle();

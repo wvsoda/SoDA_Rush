@@ -32,8 +32,8 @@ public abstract class Enemy extends Entity
 
     public void move()
     {
-        yCoord += Math.sin(angle) * 3;
-        xCoord += Math.cos(angle) * 3;
+        yCoord += Math.sin(angle) * 1;
+        xCoord += Math.cos(angle) * 1;
     }
 
 }

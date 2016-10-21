@@ -8,6 +8,7 @@ package userInterface;
 
 import java.util.Set;
 
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import entity.Enemy;
@@ -38,5 +39,12 @@ public class GUIManager implements UserInterface
     public void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> bullets)
     {
         gamePane.initReferencesToGameController(gc, enems, bullets);
+    }
+
+    @Override
+    public JFrame getThis()
+    {
+        // TODO Auto-generated method stub
+        return gamePane;
     }
 }

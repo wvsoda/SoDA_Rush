@@ -11,6 +11,7 @@ package userInterface;
 
 import java.util.Set;
 
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import entity.Enemy;
@@ -23,4 +24,6 @@ public interface UserInterface
 
     // Passes significant references of GameController to UserInterface
     void initReferencesToGameController(GameController gc, Set<Enemy> enems, Set<Bullet> bullets);
+    
+    JFrame getThis();
 }

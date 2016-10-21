@@ -9,7 +9,7 @@ public abstract class Entity
     protected double angle;
 
     protected int hitBoxRadius;
-
+    protected boolean killed;
     public Entity()
     {
         xCoord = 0;
@@ -38,7 +38,17 @@ public abstract class Entity
     {
         return hitBoxRadius;
     }
-
+    
+    public boolean isKilled()
+    {
+        return killed;
+    }
+    
+    public void kill()
+    {
+        killed = true;
+    }
+    
     abstract public void move();
 
 }

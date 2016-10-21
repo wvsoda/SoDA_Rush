@@ -32,7 +32,9 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     private Image pencil;
 
     private char dir;
-
+    boolean bulletShot;
+    
+    
     public GamePane()
     {
         super("SoDA Rush");
@@ -52,6 +54,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         setSize(600, 600);
         setVisible(true);
         this.setBackground(Color.decode("#F44336"));
+        bulletShot = false;
     }
 
     // Receives important references from GameController and keeps track of them
@@ -91,7 +94,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         }
         
         for (Bullet bullet : Bullets){
-            g.drawImage(pencil, (int) bullet.getX(), (int) bullet.getY(),76,38,this);
+            g.drawImage(pencil, (int) bullet.getX(), (int) bullet.getY(),20,20,this);
         }
 
         Graphics2D g2d = (Graphics2D) g; // Create a Java2D version of g.
@@ -105,7 +108,11 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         switch (dir)
         {
             case 'w':
-                gameController.shootBullet();
+                if(!bulletShot)
+                {
+                    gameController.shootBullet();
+                    bulletShot = true;
+                }
                 System.out.println("W pressed");
                 break;
             case 'd':
@@ -143,6 +150,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     public void keyReleased(KeyEvent e)
     {
         dir = '-';
+        bulletShot = false;
 
     }
 
@@ -158,7 +166,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
     {
         wvlogo = (new ImageIcon("wvlogo.png")).getImage();
         mclogo = (new ImageIcon("mclogo.png")).getImage();
-        pencil = (new ImageIcon("pencil.png")).getImage();
+        pencil = (new ImageIcon("cannonball.png")).getImage();
 
     }
 }
