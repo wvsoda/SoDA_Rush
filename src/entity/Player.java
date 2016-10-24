@@ -9,7 +9,7 @@ public class Player extends Entity
     {
         xCoord = 250;
         yCoord = 250;
-        hitBoxRadius = 50;
+        hitBoxRadius = 30;
     }
 
     public void setRotationDirection(char d) // import rotation direction

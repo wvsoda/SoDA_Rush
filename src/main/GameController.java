@@ -95,7 +95,7 @@ public class GameController
             enemies.add(new MCEnemy());
         }
         timer++;
-        if(timer!=0 && timer%200==0 && diff>10){
+        if(timer!=0 && timer%100==0 && diff>10){
             diff -= 10;
         }
         System.out.println("Score: " +score);
@@ -129,7 +129,6 @@ public class GameController
                 )
             b.kill();
     }
-    
     public double getPlayerAngle()
     {
         return player.getAngle();

@@ -26,7 +26,6 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
 
     private Set<Enemy> enemies;
     private Set<Bullet> Bullets;
-
     private Image wvlogo;
     private Image mclogo;
     private Image pencil;
@@ -56,8 +55,9 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
 
         addKeyListener(this);
         setSize(600, 600);
+        this.setIconImage(pencil);
         setVisible(true);
-        this.setBackground(Color.decode("#F44336"));
+        //wthis.setBackground(Color.decode("#F44336"));
         bulletShot = false;
     }
 
@@ -195,6 +195,7 @@ public class GamePane extends JFrame implements KeyListener, ActionListener
         pencil = (new ImageIcon("cannonball.png")).getImage();
         collegeboard = (new ImageIcon ("collegebaord.png")).getImage();
         sundevil = (new ImageIcon ("sundevil.png")).getImage();
+
 
     }
 }
